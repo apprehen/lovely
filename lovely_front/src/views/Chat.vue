@@ -1,8 +1,12 @@
 <template>
-  <div></div>
+  <div>
+    这是和二次元聊天的页面捏
+  </div>
 </template>
 
-<script setup>
+<script setup >
 import { reactive, ref } from 'vue'
+
+
 </script>
 <style scoped lang='less'></style>

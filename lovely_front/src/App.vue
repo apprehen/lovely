@@ -1,10 +1,10 @@
 <template>
-	<div class="test">EXPLOSION
-		<div class="innerTest">hhh</div>
-	</div>
+	<TopBar> </TopBar>
+	<router-view></router-view>
 </template>
 
 <script setup>
+import TopBar from './components/common/TopBar.vue'
 import { reactive, ref } from 'vue'
 
 </script>
