@@ -23,7 +23,7 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 const router = useRouter()
-const currentPath = ref('/')
+const currentPath = ref('')
 const topBarDataList = ref([
   { name: '首页', icon: 'icon-shouye', path: '/' },
   { name: '聊天', icon: 'icon-chat', path: '/Chat' },
@@ -36,6 +36,18 @@ const changeRouter = (path) => {
   currentPath.value = path
   router.push(path)
 }
+
+// 判断当前路由
+const judgeCurrentPath = () => {
+  const path = router.currentRoute.value.path
+  currentPath.value = path
+}
+
+// 监听路由变化
+router.afterEach(() => {
+  judgeCurrentPath()
+  // console.log('路由变化了',to,from)
+})
 </script>
 <style scoped lang="less">
 .topBar {
