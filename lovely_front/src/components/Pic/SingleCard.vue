@@ -2,18 +2,21 @@
 
 <div class="imgs-wrapper">
   <div class="imgs">
-    <img :src="imgSrc" alt="" @load="test">
+    <img :src="imgSrc" alt="" @load="changeCount">
   </div>
   <div class="info">
-    {{ info  }}
+    {{ info }}
   </div>
 </div>
 
 </template>
 
 <script setup>
-import {ref} from 'vue'
-const props = defineProps({
+import { useImgsStore } from '@/stores/imgs.js'
+
+const store = useImgsStore()
+// console.log(store.count++)
+defineProps({
   imgSrc: {
     type: String,
     default: ''
@@ -23,17 +26,9 @@ const props = defineProps({
     default: ''
   }
 })
-const height = ref(0)
-const test = ()=>{
-  const img = new Image()
-  img.src = props.imgSrc
-  img.onload = () => {
-    // console.log(img.width, img.height)
-    height.value = img.height * 250 / img.width
-    console.log(height.value)
-  }
+const changeCount = ()=>{
+  store.count++
 }
-
 </script>
 <style scoped lang='less'>
 .imgs-wrapper{
@@ -41,7 +36,7 @@ const test = ()=>{
   border: 1px solid #ccc;
   display: flex;
   flex-direction: column;
-
+  background-color: red;
   .imgs{
     width: 100%;
     img{
