@@ -16,7 +16,7 @@ const router = createRouter({
     {
       path: '/Pic',
       name: 'Pic',
-      component: () => import('@/views/Pic.vue')
+      component: () => import('@/views/PicPage.vue')
     },
     {
       path: '/Video',

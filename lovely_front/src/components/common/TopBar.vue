@@ -1,12 +1,17 @@
 <template>
   <div class="topBar">
     <div class="logo">
-      <img src="@/assets/imgs/sitimgs/sit.png" alt="月晕の网站">
+      <img src="@/assets/imgs/sitimgs/sit.png" alt="月晕の网站" />
       <div class="logoName">月晕</div>
     </div>
     <div class="rightIcons">
-      <div v-for="(item, index) in  topBarDataList " class="rightNav" @click="changeRouter(item.path)"
-        :class="{ active: currentPath == item.path }">
+      <div
+        v-for="(item,index) in topBarDataList"
+        :key="index"
+        class="rightNav"
+        @click="changeRouter(item.path)"
+        :class="{ active: currentPath == item.path }"
+      >
         <i class="iconfont" :class="item.icon"></i>
         <div class="content">{{ item.name }}</div>
       </div>
@@ -15,7 +20,7 @@
 </template>
 
 <script setup>
-import { reactive, ref } from 'vue'
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 const router = useRouter()
 const currentPath = ref('/')
@@ -28,14 +33,11 @@ const topBarDataList = ref([
 ])
 
 const changeRouter = (path) => {
-  // console.log(path)
   currentPath.value = path
-  console.log(currentPath.value)
   router.push(path)
 }
-
 </script>
-<style scoped lang='less'>
+<style scoped lang="less">
 .topBar {
   width: 100%;
   height: 50px;
@@ -43,7 +45,7 @@ const changeRouter = (path) => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  margin-top:  5px;
   .logo {
     width: 8%;
     height: 100%;
@@ -85,7 +87,6 @@ const changeRouter = (path) => {
       border-radius: 6px;
       color: #4c4948;
       font-weight: 700;
-      
 
       // color: #fff;
       &:hover {
@@ -105,7 +106,7 @@ const changeRouter = (path) => {
 
       .content {
         color: #4c4948;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, .3);
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
         font-size: 20px;
         margin-left: 5px;
       }
