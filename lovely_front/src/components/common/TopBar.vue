@@ -46,7 +46,6 @@ const judgeCurrentPath = () => {
 // 监听路由变化
 router.afterEach(() => {
   judgeCurrentPath()
-  // console.log('路由变化了',to,from)
 })
 </script>
 <style scoped lang="less">
