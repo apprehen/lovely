@@ -57,6 +57,7 @@ router.afterEach(() => {
   justify-content: space-between;
   align-items: center;
   margin-top:  5px;
+  font-family: 'CommonYueyun';
   .logo {
     width: 8%;
     height: 100%;
